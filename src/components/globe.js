@@ -24,9 +24,9 @@ const Globe = ({ popup, setPopup }) => {
   const globeRef = useRef();
   const { camera, gl } = useThree();
 
-  useFrame(() => {
-    globeRef.current.rotation.y += 0.001; // Rotate globe
-  });
+//   useFrame(() => {
+//     globeRef.current.rotation.y += 0.001; // Rotate globe
+//   });
 
   const markers = [
     { lat: 40.7128, lon: -74.006, label: "New York" },
@@ -37,7 +37,7 @@ const Globe = ({ popup, setPopup }) => {
 
   const handleMarkerClick = (label, position) => {
     const screenPosition = getScreenPosition(position.clone(), camera, gl.domElement);
-    setPopup({ visible: true, label, position: screenPosition });
+    setPopup({ visible: popup.visible ? false : true, label, position: screenPosition });
   };
 
   return (

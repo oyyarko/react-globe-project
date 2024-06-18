@@ -13,9 +13,9 @@ function App() {
   return (
     <div className="canvas-container">
       <Canvas>
-        <Suspense fallback={null}>
+        {/* <Suspense fallback={null}> */}
           <Globe popup={popup} setPopup={setPopup}/>
-        </Suspense>
+        {/* </Suspense> */}
       </Canvas>
       {popup.visible && (
         <div
@@ -23,8 +23,6 @@ function App() {
             position: "absolute",
             top: `${popup.position.y}px`,
             left: `${popup.position.x}px`,
-
-            
             backgroundColor: "white",
             padding: "10px",
             borderRadius: "5px",

@@ -6,7 +6,7 @@ const Marker = ({ lat, lon, radius, onClick }) => {
   const position = latLongToVector3(lat, lon, radius);
   return (
     <mesh position={position} onClick={onClick}>
-      <sphereGeometry args={[0.01, 10, 10]} />
+      <sphereGeometry args={[0.01, 100, 20]} />
       <meshStandardMaterial color="red" />
     </mesh>
   );
