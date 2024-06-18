@@ -1,23 +1,39 @@
-import logo from './logo.svg';
-import './App.css';
+import { Canvas } from "@react-three/fiber";
+import "./App.css";
+import Globe from "./components/globe";
+import { Suspense, useState } from "react";
 
 function App() {
+  const [popup, setPopup] = useState({
+    visible: false,
+    label: "",
+    position: { x: 0, y: 0, z: 0 },
+  });
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+    <div className="canvas-container">
+      <Canvas>
+        <Suspense fallback={null}>
+          <Globe popup={popup} setPopup={setPopup}/>
+        </Suspense>
+      </Canvas>
+      {popup.visible && (
+        <div
+          style={{
+            position: "absolute",
+            top: `${popup.position.y}px`,
+            left: `${popup.position.x}px`,
+
+            
+            backgroundColor: "white",
+            padding: "10px",
+            borderRadius: "5px",
+            pointerEvents: "none",
+          }}
         >
-          Learn React
-        </a>
-      </header>
+          {popup.label}
+        </div>
+      )}
     </div>
   );
 }

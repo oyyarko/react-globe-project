@@ -5,9 +5,20 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-image: url("https://i.postimg.cc/br3g30GL/bg.jpg");
+  background-position: center center;
+  overflow: hidden;
+  background-size: cover;
+  background-color: black;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.canvas-container {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
 }
